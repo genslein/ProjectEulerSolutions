@@ -6,11 +6,19 @@
 require_relative 'TimedPut'
 
 def fibonacci_hash
-  Hash.new{ |h,k| h[k] = k < 2 ? k : h[k-1] + h[k-2] }.merge(0 => 0, 1 => 1)
+  Hash.new{ |h,k| h[k] = k < 2 ? k : h[k-1] + h[k-2] }
 end
 
 def fib_evens(number)
- fibonacci_hash.select { |key, val| val < number}.values.reduce(:+)
+ fibonacci_hash.select { |key, val| (val < number && val % 2 == 0) ? val : 0 }.values.reduce(:+)
 end
 
-tputs{fib_evens 4000000}
+def dumb_fib(number)
+  a = {}
+  (2..33).each do |val|
+     a[val] = fibonacci_hash[val] < number && fibonacci_hash[val] % 2 == 0 ? fibonacci_hash[val] : 0
+  end
+  a.values.reduce(:+)
+end
+
+tputs{dumb_fib 4000000}
