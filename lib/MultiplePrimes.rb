@@ -12,12 +12,25 @@ class MultiplePrimes
   end
 
   def is_prime? number
-    (2..(number-1)).each { |x| return false if number % x == 0 }
-    true
+    if number % 2 == 0
+      false
+    else
+      (3..(number-1)).step(2) { |x| return false if number % x == 0 }
+      true
+    end
   end
 
   def generate_n_primes(number)
-    (2..max_int).each do |i|
+    if number < 1
+      return
+    end
+
+    prime_list[2] = [4]
+    if number == 1
+      return
+    end
+
+    (3..max_int).step(2) do |i|
       if is_prime?(i)
         prime_list[i] = Array.new
       end
@@ -45,6 +58,6 @@ class MultiplePrimes
   end
 end
 
-p = MultiplePrimes.new
-p.run_full_prime_table_of_multiplications(10)
+#p = MultiplePrimes.new
+#p.run_full_prime_table_of_multiplications(10)
 
