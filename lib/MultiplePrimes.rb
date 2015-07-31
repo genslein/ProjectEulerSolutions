@@ -58,6 +58,6 @@ class MultiplePrimes
   end
 end
 
-#p = MultiplePrimes.new
-#p.run_full_prime_table_of_multiplications(10)
+p = MultiplePrimes.new
+p.run_full_prime_table_of_multiplications(10)
 
