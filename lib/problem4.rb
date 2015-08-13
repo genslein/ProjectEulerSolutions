@@ -5,10 +5,12 @@
 require_relative 'TimedPut'
 
 def palindromic_number
-  999.downto(100) do |x|
-    999.downto(100) do |y|
+  value = 0
+  999.downto(900) do |x|
+    x.downto(900) do |y|
       if (x*y).to_s == (x*y).to_s.reverse
-        return (x*y).to_s + " and the values are " + x.to_s + " " + y.to_s
+        #puts (x*y).to_s + " and the values are " + x.to_s + " " + y.to_s
+       return x*y
       end
     end
   end

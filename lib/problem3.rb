@@ -5,43 +5,30 @@ require 'Prime'
 # What is the largest prime factor of the number 600851475143 ?
 
 def largest_prime_factor_cheat(number)
+    Prime.instance
     number.prime_division.last[0]
 end
 
 def largest_prime_factor_real(number)
-#   a = []
-#   product_sum = 1
-#
-# # the digit 2 is the first prime number,
-# # so we define it in x
-#   x = 2
-#
-#   while product_sum < number
-#     if number % x == 0 && is_prime?(x)
-#       a << x
-#       product_sum *= x
-#     end
-#     x += 1
-#   end
-#   puts a
-    z = 0
-      (2..(Math.sqrt(number-1)).ceil.to_int).each do |y|
-        if number % y == 0 && is_prime?(y) && z < y
-          z = y
-        end
-      end
-  z
-end
-
-def is_prime? number
-  if number % 2 == 0
-    false
-  else
-    (3..(number-1)).step(2) { |x| return false if number % x == 0 }
-    true
+  Math.sqrt(number-1).ceil.downto(1) do |i|
+    if number % i == 0 && is_prime?(i)
+      return i
+    end
   end
 end
 
+def is_prime?(number)
+  if number % 2 == 0
+    false
+  else
+    start_val = Math.sqrt(number-1).ceil
+    start_val += 1 if start_val.even?
+    start_val.ceil.step(3, -2) do |x|
+      return false if number % x == 0
+    end
+    true
+  end
+end
 
 tputs{largest_prime_factor_cheat 13195}
 tputs{largest_prime_factor_cheat 600851475143}
