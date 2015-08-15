@@ -28,10 +28,9 @@ class ProductDigit
   def find_biggest_product_from_digits(number_of_digits)
     max = 0
     digit_array.each_index do |i|
-      while digit_array.length - i >= number_of_digits
+      if digit_array.length - i >= number_of_digits
         temp = (i..i+12).inject(1) { |sum, k| sum * digit_array[k] }
         max = temp if temp > max
-        i += 1
       end
     end
     max
