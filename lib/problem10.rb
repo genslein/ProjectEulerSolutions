@@ -1,8 +1,12 @@
 require_relative 'TimedPut'
+
 # Project Euler problem 10 done as Sieve of Sorenson
 # utilizing memory optimization in the summation.
 # More memory can be optimized here but kept some for
-# debugging purposes. O(n^2) time with O(sqrt(n)) space complexity
+# debugging purposes. O(n^2) time with O(sqrt(n)) space complexity.
+
+# Can be further optimized with bit operations based on keys instead
+# of bigDecimal values.
 
 def sum_n_primes(limit)
   # Sieve of Sorenson / Eratosthenes to maximize space
