@@ -32,7 +32,7 @@ def sum_n_primes(limit)
 
     #puts "Top end of array #{top_range}:\n#{temp_array.to_s}"
     #push summation through
-    sum_of_deltas.push(temp_array.reduce(:+))
+    sum_of_deltas.push(sum_of_current_delta)
   end
 
   tail_end_primes = []
