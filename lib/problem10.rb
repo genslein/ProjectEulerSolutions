@@ -1,6 +1,10 @@
 require_relative 'TimedPut'
 
-# Project Euler problem 10 done as Sieve of Sorenson
+# Project Euler problem 10:
+# The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+# Find the sum of all the primes below two million.
+
+# Solution: done as Sieve of Sorenson
 # utilizing memory optimization in the summation.
 # More memory can be optimized here but kept some for
 # debugging purposes. O(n^2) time with O(sqrt(n)) space complexity.
