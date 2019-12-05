@@ -4,7 +4,7 @@ require_relative 'TimedPut'
 # The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 # Find the sum of all the primes below two million.
 
-# Solution: done as Sieve of Sorenson
+# Solution: done as Sieve of Sorenson aka Segmented Sieve
 # utilizing memory optimization in the summation.
 # More memory can be optimized here but kept some for
 # debugging purposes. O(n^2) time with O(sqrt(n)) space complexity.
